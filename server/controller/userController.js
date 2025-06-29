@@ -25,3 +25,12 @@ export const addEmp=async(req,res)=>{
         return res.status(500).json({"error":"Internal server error"})
     }
 }
+
+export const updateEmp=async(req,res)=>{
+    let empId=req.params.empId;
+    try {
+        
+    } catch (error) {
+        return res.status(500).json({"error":"Internal server error"})
+    }
+}
