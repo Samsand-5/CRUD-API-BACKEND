@@ -11,3 +11,12 @@ export const getAllEmp=async(req,res)=>{
         return res.status(500).json({"error":"Internal server error"})
     }
 }
+
+export const addEmp=async(req,res)=>{
+    const {name,email,designation,empId}=req.body;
+    try {
+        
+    } catch (error) {
+        
+    }
+}
