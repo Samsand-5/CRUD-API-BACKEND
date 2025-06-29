@@ -19,7 +19,10 @@ export const createUserModel=(sequelize)=>{
         },
         empId:{
             type:DataTypes.STRING,
-            allowNULL:false
+            allowNULL:false,
+            unique:true
         }
     });
+    
+    return User;
 }
