@@ -18,7 +18,7 @@ export const getAllEmp=async(req,res)=>{
 export const addEmp=async(req,res)=>{
     const {name,email,designation,empId}=req.body;
     try {
-        const user = await UserModel.findOne({where:{empId:empId}})
+        const emp = await UserModel.findOne({where:{empId:empId}})
         if(emp==null){
             await UserModel.create(req.body);
             return res.status(201).json({message:"employee added successfully"})
@@ -38,6 +38,21 @@ export const updateEmp=async(req,res)=>{
             return res.status(404).json({message:"not found"})
         }
         return res.status(200).json({message:"updated successfully"})
+    } catch (error) {
+        return res.status(500).json({"error":"Internal server error"})
+    }
+}
+
+//DELETE
+export const deleteEmp=async(req,res)=>{
+    let empId=req.params.empId;
+    try {
+        const emp = await UserModel.findOne({where:{empId:empId}})
+        if(emp==null){
+            return res.status(404).json({message:"employee not found"})
+        }
+        await emp.destroy()
+        return res.status(200).json({message:"employee deleted successfully"})
     } catch (error) {
         return res.status(500).json({"error":"Internal server error"})
     }
