@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-export const createUserModel=(sequelize)=>{
+export const createUserModel=async(sequelize)=>{
 
     const User=sequelize.define('User',{
         name:{
